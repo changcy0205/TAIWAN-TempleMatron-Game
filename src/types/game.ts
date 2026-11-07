@@ -109,6 +109,6 @@ export interface FigurineRecord {
   totalOfferingsPlaced: number;
 }
 
-export type GameTab = 'hall' | 'shop' | 'battle' | 'cabinet' | 'handbook';
+export type GameTab = 'title' | 'hall' | 'shop' | 'battle' | 'cabinet' | 'handbook';
 
 export type BattlePhase = 'shield_talisman' | 'weapon_qte' | 'gourd_seal' | 'victory';

@@ -298,7 +298,7 @@ export const MainHall: React.FC<MainHallProps> = ({
           <div className="bg-[#211914] border border-amber-900/50 rounded-lg p-4 flex flex-col h-[320px]">
             <div className="flex items-center justify-between border-b border-amber-900/40 pb-2 mb-3">
               <span className="text-xs font-serif font-bold text-amber-300">本堂諮詢紀錄</span>
-              <span className="text-[10px] text-amber-600 font-mono">大稻埕六月廿二日</span>
+              <span className="text-[10px] text-amber-600 font-mono">大稻埕六月六日</span>
             </div>
 
             <div className="flex-1 overflow-y-auto pr-1 flex flex-col gap-2.5 text-xs">

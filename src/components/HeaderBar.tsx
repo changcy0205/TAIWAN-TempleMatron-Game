@@ -28,6 +28,7 @@ export const HeaderBar: React.FC<HeaderBarProps> = ({
   onToggleSound,
 }) => {
   const navTabs: { id: GameTab; label: string; badge?: string }[] = [
+    { id: 'title', label: '主畫面' },
     { id: 'hall', label: '案內本堂' },
     { id: 'shop', label: '供品販賣部' },
     { id: 'battle', label: '降妖法陣', badge: hasActiveDemon ? '妖氣沖天' : undefined },
@@ -42,7 +43,7 @@ export const HeaderBar: React.FC<HeaderBarProps> = ({
         <button
           onClick={() => {
             sounds.playWoodFish();
-            onSelectTab('hall');
+            onSelectTab('title');
           }}
           className="flex items-center gap-2.5 text-left group cursor-pointer"
         >

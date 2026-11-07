@@ -13,11 +13,12 @@ import { ShopCounter } from './components/ShopCounter';
 import { ExorcismBattle } from './components/ExorcismBattle';
 import { CurioCabinet } from './components/CurioCabinet';
 import { HandbookModal } from './components/HandbookModal';
+import { TitleScreen } from './components/TitleScreen';
 import { Sparkles, AlertTriangle, CheckCircle2, RefreshCw } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
 export default function App() {
-  const [currentTab, setCurrentTab] = useState<GameTab>('hall');
+  const [currentTab, setCurrentTab] = useState<GameTab>('title');
   const [money, setMoney] = useState<number>(2450); // Initial 2450 Yen as in concept images
   const [reputation, setReputation] = useState<number>(100);
   const [soundEnabled, setSoundEnabled] = useState<boolean>(true);
@@ -265,6 +266,20 @@ export default function App() {
     }));
   };
 
+  // Reset / New cycle handler
+  const handleResetGame = () => {
+    setMoney(2450);
+    setReputation(100);
+    setDevoteeIndex(0);
+    setDiscoveredClues([]);
+    setInventory(SHRINE_ITEMS);
+    setCurrentTrayItems([
+      SHRINE_ITEMS.find((i) => i.id === 'incense_wire')!,
+      SHRINE_ITEMS.find((i) => i.id === 'gold_zhuangyuan')!,
+    ]);
+    setActiveDemon(null);
+  };
+
   return (
     <div className="min-h-screen bg-[#1a1512] text-[#e6dfd5] flex flex-col font-serif">
       {/* Universal Top Bar */}
@@ -286,6 +301,22 @@ export default function App() {
 
       {/* Main View Area */}
       <main className="flex-1 w-full pb-10">
+        {currentTab === 'title' && (
+          <TitleScreen
+            onStartGame={() => setCurrentTab('hall')}
+            onOpenCabinet={() => setCurrentTab('cabinet')}
+            onOpenShop={() => setCurrentTab('shop')}
+            onOpenHandbook={() => setShowHandbook(true)}
+            onOpenTalisman={() => setCurrentTab('battle')}
+            money={money}
+            reputation={reputation}
+            totalCollected={Object.values(collection).filter((c) => c.unlocked).length}
+            soundEnabled={soundEnabled}
+            onToggleSound={handleToggleSound}
+            onResetGame={handleResetGame}
+          />
+        )}
+
         {currentTab === 'hall' && (
           <MainHall
             currentDevotee={currentDevotee}
