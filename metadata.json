@@ -1,0 +1,7 @@
+{
+  "name": "奇廟幻埕案內所：廟婆營業中",
+  "description": "日治時期大稻埕和洋折衷風格的模擬經營 × 動作解謎 × 百鬼公仔收集養成遊戲。扮演靈視廟婆接待信眾、觀靈刺探執念、配對神龕供品、降妖伏魔封印怪奇公仔！",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+

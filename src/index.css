@@ -1,0 +1,67 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  body {
+    font-family: 'Noto Serif TC', serif;
+    background-color: #1a1512;
+    color: #e6dfd5;
+    user-select: none;
+    overflow-x: hidden;
+  }
+}
+
+/* Vintage paper & wood textures */
+.bg-parchment {
+  background-color: #f6efe2;
+  background-image: radial-gradient(#d6c7b2 1px, transparent 1px), radial-gradient(#d6c7b2 1px, #f6efe2 1px);
+  background-size: 20px 20px;
+  background-position: 0 0, 10px 10px;
+}
+
+.bg-dark-wood {
+  background-color: #241c16;
+  background-image: linear-gradient(90deg, rgba(0,0,0,0.15) 1px, transparent 1px),
+                    linear-gradient(rgba(0,0,0,0.15) 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+
+/* Custom scrollbars with retro brass feeling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(30, 20, 15, 0.5);
+}
+::-webkit-scrollbar-thumb {
+  background: #8b6b43;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #b28d5d;
+}
+
+/* Stained glass glow & spiritual aura animations */
+@keyframes ghostPulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 8px rgba(74, 222, 128, 0.4)) drop-shadow(0 0 16px rgba(56, 189, 248, 0.3));
+  }
+  50% {
+    filter: drop-shadow(0 0 16px rgba(74, 222, 128, 0.7)) drop-shadow(0 0 28px rgba(168, 85, 247, 0.5));
+  }
+}
+
+.animate-ghost-pulse {
+  animation: ghostPulse 3s ease-in-out infinite;
+}
+
+@keyframes inkSwirl {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.04); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+.animate-ink-swirl {
+  animation: inkSwirl 18s linear infinite;
+}
